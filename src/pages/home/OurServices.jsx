@@ -29,13 +29,13 @@ const serviceLists = [
 
 const OurServices = () => {
   return (
-    <div className="section-container my-16 bg-white">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+    <div className="section-container my-20 bg-white">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-20">
         {/* Left side */}
         <div className="md:w-1/2">
           <div className="text-left md:w-4/5">
-            <p className="subtitle text-teal-800">Our Story & Services</p>
-            <h2 className="title text-teal-600">
+            <p className="subtitle">Our Story & Services</p>
+            <h2 className="title text-teal-600/60 ">
               Our Journey Into Sustainable Dining
             </h2>
             <p className="my-5 text-base font-medium text-secondary leading-[30px]">
