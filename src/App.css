@@ -103,7 +103,7 @@ input[type="number"] {
 }
 
 .dashboard-container {
-  background-color: rgb(12 10 9); /* Set the background color to match the dark mode background */
+  background-color: rgb(40, 153, 138); /* Set the background color to match the dark mode background */
   overflow: hidden; /* Hide any overflow content */
 }
 
@@ -114,7 +114,7 @@ input[type="number"] {
 
 
 .outlet-background {
-  background-image: url('../public/back1.jpg'); /* Adjust the path as necessary */
+  background-image: url('../public/back4.jpg'); /* Adjust the path as necessary */
   background-size: cover;
   background-position: center;
 }

@@ -1,29 +1,28 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import Cards from '../../components/Cards';
-import HomeCards from '../../components/HomeCards';
+import React from "react";
+import { useState, useEffect } from "react";
+import Cards from "../../components/Cards";
+import HomeCards from "../../components/HomeCards";
 
 const Menu = () => {
   const [menu, setMenu] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [sortOption, setSortOption] = useState('default');
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [sortOption, setSortOption] = useState("default");
   const [curentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(6);
-
 
   // Loading data
   useEffect(() => {
     // Fetch data from backend
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:6001/menu');
+        const response = await fetch("http://localhost:6001/menu");
         const data = await response.json();
         //console.log(data)
         setMenu(data);
         setFilteredItems(data);
       } catch (error) {
-        console.log('Error fetching data', error);
+        console.log("Error fetching data", error);
       }
     };
     // Call the function
@@ -32,7 +31,10 @@ const Menu = () => {
 
   // Filtering data based on category
   const filterItems = (category) => {
-    const filtered = category === 'all' ? menu : menu.filter((item) => item.category === category);
+    const filtered =
+      category === "all"
+        ? menu
+        : menu.filter((item) => item.category === category);
     setFilteredItems(filtered);
     setSelectedCategory(category);
     setCurrentPage(1);
@@ -41,7 +43,7 @@ const Menu = () => {
   // Show all data
   const showAll = () => {
     setFilteredItems(menu);
-    setSelectedCategory('all');
+    setSelectedCategory("all");
     setCurrentPage(1);
   };
 
@@ -53,16 +55,16 @@ const Menu = () => {
 
     // Logic
     switch (option) {
-      case 'A-Z':
+      case "A-Z":
         sortedItems.sort((a, b) => a.name.localeCompare(b.name));
         break;
-      case 'Z-A':
+      case "Z-A":
         sortedItems.sort((a, b) => b.name.localeCompare(a.name));
         break;
-      case 'low-high':
+      case "low-high":
         sortedItems.sort((a, b) => a.price - b.price);
         break;
-      case 'high-low':
+      case "high-low":
         sortedItems.sort((a, b) => b.price - a.price);
         break;
       default:
@@ -79,35 +81,36 @@ const Menu = () => {
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
-
   return (
-    <div className=''>
+    <div className="">
       {/* Menu banner */}
-      <div className="section-container mt-20 bg-gradient-to-r menu-background bg-white">
-        <div className="  py-30 flex flex-col md:flex-row-reverse justify-between items-center gap-6">
-
+      <div className="section-container mt-20 bg-gradient-to-r menu-background bg-white rounded-lg">
+        <div className="  py-30 flex flex-col md:flex-row-reverse justify-between items-center gap-6 pt-10">
           {/* component */}
-          <div className='md:w-1/2  '>
-            <img src='/menuChef3.png' alt='banner' className='w-full h-[500px] mb-6' />
-            <div className='flex flex-col md:flex-row items-center justify-around -mt-14 gap-4'>
-            </div>
+          <div className="md:w-1/2  overflow-hidden">
+            <img
+              src="./public/chef.jpg"
+              alt="banner"
+              className="w-[100%] h-[300px] md:h-[500px] mb-6  "
+            />
+            <div className="flex flex-col md:flex-row items-center justify-around -mt-14 gap-4"></div>
           </div>
           {/* Text */}
-          <div className='md:w-1/2 space-y-7 px-4'>
-            <div className='  rounded-3xl shadow-xl  p-8 px-10 bg-simpleLightYellow'>
-              
-              <p className='text-gray-600 mt-4'>
-             <span className=' text-2xl'>"</span> <span className=' text-lg'> Welcome to MRKing, your ultimate culinary destination in Sri Lanka! Explore our enticing menu crafted by our talented lady chef, where you can easily browse, sort, and add delectable dishes to your cart for a seamless online ordering experience. Indulge in a symphony of flavors right at your fingertips!</span> <span className='text-2xl'>"</span>
+          <div className="md:w-1/2 space-y-7 px-4">
+            <div className="  rounded-3xl shadow-xl  p-8 px-10 bg-simpleLightYellow">
+              <p className="text-gray-600 mt-4">
+                <span className=" text-2xl">"</span>{" "}
+                <span className=" text-lg">
+                  {" "}
+                  Welcome to EcoNest Café — where flavor meets sustainability.
+                  Explore our menu of fresh, organic delights, crafted to
+                  nourish you while caring for the planet. Enjoy every bite in a
+                  way that feels good and does good.
+                </span>{" "}
+                <span className="text-2xl">"</span>
               </p>
-           
             </div>
           </div>
-
-
-
-
-
         </div>
       </div>
 
@@ -115,56 +118,66 @@ const Menu = () => {
       <div className=" section-container">
         {/* Filtering and Sorting */}
 
-
-        <div className='flex flex-row justify-between items-center md:items-start gap-8 mt-6 flex-wrap'>
+        <div className="flex flex-row justify-between items-center md:items-start gap-8 mt-6 flex-wrap">
           {/* Buttons */}
-          <div className=''>
+          <div className="">
             <button
               onClick={showAll}
-              className={`w-24 mr-2 px-4 bg-yellow-200 text-slate-700 py-2 rounded-full shadow-2xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${selectedCategory === 'all' ? 'bg-yellow-300  text-black' : ''
-                }`}
+              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-700 py-2 rounded-full shadow-2xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "all" ? "bg-yellow-300  text-black" : ""
+              }`}
             >
               All
             </button>
             <button
-              onClick={() => filterItems('rice')}
-              className={`w-24 mr-2 bg-yellow-200 text-slate-700  px-4 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${selectedCategory === 'rice' ? 'bg-yellow-300  text-black' : ''
-                }`}
+              onClick={() => filterItems("rice")}
+              className={`w-24 m-2 bg-yellow-200 text-slate-700  px-4 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "rice" ? "bg-yellow-300  text-black" : ""
+              }`}
             >
               Rice
             </button>
             <button
-              onClick={() => filterItems('kottu')}
-              className={`w-24 mr-2 px-4 bg-yellow-200 text-slate-700  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${selectedCategory === 'kottu' ? 'bg-yellow-300  text-black' : ''
-                }`}
+              onClick={() => filterItems("kottu")}
+              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-700  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "kottu" ? "bg-yellow-300  text-black" : ""
+              }`}
             >
               Kottu
             </button>
             <button
-              onClick={() => filterItems('burger')}
-              className={`w-24 mr-2 px-4 bg-yellow-200 text-slate-700  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${selectedCategory === 'burger' ? 'bg-yellow-300  text-black' : ''
-                }`}
+              onClick={() => filterItems("burger")}
+              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-700  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "burger" ? "bg-yellow-300  text-black" : ""
+              }`}
             >
               Burger
             </button>
             <button
-              onClick={() => filterItems('noodles')}
-              className={`w-24 mr-2 px-4 bg-yellow-200 text-slate-700 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${selectedCategory === 'noodles' ? 'bg-yellow-300  text-black' : ''
-                }`}
+              onClick={() => filterItems("noodles")}
+              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-700 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "noodles"
+                  ? "bg-yellow-300  text-black"
+                  : ""
+              }`}
             >
               Noodles
             </button>
             <button
-              onClick={() => filterItems('dessert')}
-              className={`w-24 mr-2 px-4 bg-yellow-200 text-slate-600  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${selectedCategory === 'dessert' ? 'bg-yellow-300  text-black' : ''
-                }`}
+              onClick={() => filterItems("dessert")}
+              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-600  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "dessert"
+                  ? "bg-yellow-300  text-black"
+                  : ""
+              }`}
             >
               Desserts
             </button>
             <button
-              onClick={() => filterItems('drinks')}
-              className={`w-24 mr-2 px-4 bg-yellow-200 text-slate-600  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${selectedCategory === 'drinks' ? 'bg-yellow-300  text-black' : ''
-                }`}
+              onClick={() => filterItems("drinks")}
+              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-600  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "drinks" ? "bg-yellow-300  text-black" : ""
+              }`}
             >
               Drinks
             </button>
@@ -174,9 +187,9 @@ const Menu = () => {
           <div className="relative">
             <select
               onChange={(e) => handleSortChange(e.target.value)}
-              className="appearance-none text-black px-7 py-2 rounded-full shadow-xl  transition-all duration-300   bg-yellow-300  bordor-none focus:outline-none  focus:border-transparent "
+              className="appearance-none text-black px-7 m-2 py-2 rounded-full shadow-xl  transition-all duration-300   bg-yellow-300  bordor-none focus:outline-none  focus:border-transparent "
             >
-              <option value="default" disabled selected >
+              <option value="default" disabled selected>
                 Sort by
               </option>
               <option value="A-Z">A-Z</option>
@@ -199,7 +212,6 @@ const Menu = () => {
             </div>
           </div>
 
-
           {/* Product card */}
           <div className="grid ml-8 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-12 ">
             {currentItems.map((item) => (
@@ -210,22 +222,21 @@ const Menu = () => {
       </div>
 
       {/* Pagination */}
-      <div className='flex bg-white justify-center my-8' >
-        {
-          Array.from({ length: Math.ceil(filteredItems.length / itemsPerPage) }).map((_, index) => (
-            <button key={index} onClick={() => paginate(index + 1)}
-              className={`px-4 mb-5 gap-6 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-yellow-400 transition-all duration-300 ${curentPage === index + 1 ? 'bg-yellow-300  text-black' : ''
-                }`}
-            >
-
-              {index + 1}
-            </button>
-          ))
-        }
+      <div className="flex bg-white justify-center my-8">
+        {Array.from({
+          length: Math.ceil(filteredItems.length / itemsPerPage),
+        }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => paginate(index + 1)}
+            className={`px-4 mb-5 gap-6 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-yellow-400 transition-all duration-300 ${
+              curentPage === index + 1 ? "bg-yellow-300  text-black" : ""
+            }`}
+          >
+            {index + 1}
+          </button>
+        ))}
       </div>
-
-
-
     </div>
   );
 };

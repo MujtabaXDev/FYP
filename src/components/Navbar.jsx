@@ -66,11 +66,11 @@ const Navbar = () => {
         }`}
       >
         <div className="navbar-start">
-          <div className="dropdown justify-between">
+          <div className="dropdown justify-between content-center">
             <label tabIndex={0} className="  text-white lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-7 m-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -85,7 +85,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-64 space-y-3"
+              className="menu menu-sm dropdown-content mt-10 z-[1]   shadow    bg-teal-600/80 rounded-box w-72 space-y-1 m-16"
             >
               {navItems}
             </ul>

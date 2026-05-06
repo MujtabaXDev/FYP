@@ -9,14 +9,14 @@ const Banner = () => {
           <img
             src="/banner9.jpg"
             alt="banner"
-            className="w-full h-[550px] mt-32 rounded-lg object-cover"
+            className="w-full  h-[360px] md:h-[550px] mt-32 rounded-lg object-cover"
           />
           <div className="flex flex-col md:flex-row items-center justify-around -mt-14 gap-4"></div>
         </div>
         {/* Text */}
 
-        <div className="md:w-1/2 space-y-7 px-4">
-          <div className="  rounded-3xl shadow-xl  p-8 px-10 bg-teal-600/70">
+        <div className="md:w-1/2 space-y-7 px-0 md:px-4">
+          <div className="  rounded-3xl shadow-xl  p-2 md:p-8 px-10  bg-teal-600/70 mt-10">
             <h2 className="md:text-4xl text-gray-800 text-4xl font-bold md:leading-snug leading-snug">
               Step Into Nature. Dine the Eco Way{" "}
               <span className="text-white ">EcoNest Café </span>

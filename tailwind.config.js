@@ -18,15 +18,27 @@ export default {
         primary: "#FCFCFC",
         myYellowOne: "#FFD740",
         mYyellow: "#CCA925",
-        myHoverYellow: "#CEC338",
+        myHoverYellow: "#115e59",
         textYellow: "#B89618",
         textDarkYellow: "#997C0E",
         simpleLightYellow: "#0d94884d",
         cardYellow: "#FFFADF",
+
         yellow: {
           100: "#0d94884d", // 👈 change this hex,
           200: "#0d948880",
           300: "#0d9488b3", // 👈 change this hex
+        },
+        slate: {
+          100: "#0d9488b3", // 👈 change this hex,
+          200: "#0d948880",
+          300: "#0d9488b3", // 👈
+          // change this hex
+        },
+        stone: {
+          100: "#0d94884d", // 👈 change this hex,
+          200: "#0d948880",
+          950: "#FFFFFF", // 👈 change this hex
         },
       },
     },

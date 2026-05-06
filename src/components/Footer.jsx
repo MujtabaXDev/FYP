@@ -2,14 +2,14 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className=" bg-stone-950">
-      <footer className="footer xl:px-24 py-4 px-4 bg-stone-950 text-base-content left-0 right-0 bottom-0 ">
+    <div className="  bg-black/90">
+      <footer className="footer xl:px-24 py-4 px-4 text-base-content left-0 right-0 bottom-0 ">
         <aside>
           <img src="./eco.jpeg" className="mb-2 w-[90px] rounded-sm" />
           <p className="md:w-40 text-slate-500 ">
             EcoNest Café Pvt Ltd.
             <br />
-            Providing reliable tech since 2019
+            Providing reliable food since 2019
           </p>
         </aside>
         <nav>
@@ -37,13 +37,13 @@ const Footer = () => {
       <hr />
 
       <div>
-        <footer className="footer items-center  xl:px-24  px-4 bg-stone-950 mb-4 ">
+        <footer className="footer items-center  xl:px-24  px-4 mb-0 ">
           <aside className="items-center grid-flow-col text-slate-800 mb-8">
             <p className="mt-5 text-slate-300">
-              Copyright © 2023 - All right reserved By Sraranga Siriwardhana
+              Copyright © 2023 - All right reserved By Muhamamd Mujtaba
             </p>
           </aside>
-          <nav className="grid-flow-col mt-1 gap-4 md:place-self-center md:justify-right ml-10">
+          <nav className="grid-flow-col mt-1 gap-4  md:place-self-center md:justify-right ml-10">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
