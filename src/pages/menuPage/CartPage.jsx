@@ -94,6 +94,7 @@ const CartPage = () => {
   );
 
   const handlePlaceOrder = () => {
+    console.log("credit card:", import.meta.env.VITE_STRIPE_PK);
     if (cart.length === 0) {
       Swal.fire(
         "Cart is Empty",
