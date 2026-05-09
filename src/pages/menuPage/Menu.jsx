@@ -91,7 +91,7 @@ const Menu = () => {
           {/* component */}
           <div className="md:w-1/2  overflow-hidden">
             <img
-              src="./public/chef.jpg"
+              src="https://res.cloudinary.com/dz2ltice7/image/upload/v1778368787/JpxCu_ghfgbm.jpg"
               alt="banner"
               className="w-[100%] h-[300px] md:h-[500px] mb-6  "
             />
