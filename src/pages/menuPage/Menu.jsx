@@ -101,13 +101,13 @@ const Menu = () => {
           <div className="md:w-1/2 space-y-7 px-4">
             <div className="  rounded-3xl shadow-xl  p-8 px-10 bg-simpleLightYellow">
               <p className="text-gray-600 mt-4">
-                <span className=" text-2xl">"</span>{" "}
+                <span className=" text-2xl"></span>{" "}
                 <span className=" text-lg">
                   {" "}
                   Welcome to EcoNest Café — where flavor meets sustainability.
                   Explore our menu of fresh, organic delights, crafted to
                   nourish you while caring for the planet. Enjoy every bite in a
-                  way that feels good and does good.
+                  way that feels good.
                 </span>{" "}
                 <span className="text-2xl">"</span>
               </p>
