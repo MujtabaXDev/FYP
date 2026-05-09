@@ -46,7 +46,7 @@ const ManageItems = () => {
           <table className="table">
             <thead>
               <tr className=" bg-gray-900 text-white">
-                <th>#</th>
+                <th className="hidden md:table-cell">#</th>
                 <th>Image</th>
                 <th>Item Name</th>
                 <th>Price</th>
@@ -57,7 +57,7 @@ const ManageItems = () => {
             <tbody>
               {menu.map((item, index) => (
                 <tr key={index}>
-                  <th>{index + 1}</th>
+                  <th className="hidden md:table-cell">{index + 1}</th>
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
