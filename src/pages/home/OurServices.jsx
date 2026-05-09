@@ -30,7 +30,10 @@ const serviceLists = [
 const OurServices = () => {
   return (
     <div className="section-container my-20 bg-white">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-20">
+      <div
+        className="flex flex-col md:flex-row items-center justify-between gap-2cd client 
+      0"
+      >
         {/* Left side */}
         <div className="md:w-1/2">
           <div className="text-left md:w-4/5">
@@ -38,7 +41,7 @@ const OurServices = () => {
             <h2 className="title text-teal-600/60 ">
               Our Journey Into Sustainable Dining
             </h2>
-            <p className="my-5 text-base font-medium text-secondary leading-[30px]">
+            <p className="my-5  text-base font-medium text-secondary leading-[30px]">
               EcoNest Café is built on a simple idea — to bring together great
               food and a meaningful experience. Our journey focuses on creating
               a space where fresh, organic flavors meet a calm, nature-inspired

@@ -5,18 +5,18 @@ const Banner = () => {
     <div className="section-container  bg-white ">
       <div className="py-30 flex flex-col md:flex-row-reverse justify-between items-center gap-6">
         {/* small cards */}
-        <div className="md:w-2/5  ">
+        <div className="md:w-4/7  ">
           <img
-            src="/banner9.jpg"
+            src="/image.jpg"
             alt="banner"
-            className="w-full  h-[360px] md:h-[550px] mt-32 rounded-lg object-cover"
+            className="w-full  h-[330px] md:h-[550px] mt-32  p-1 rounded-3xl object-cover   animate-fadeIn animation-delay-500 animation-fill-mode-forwards"
           />
           <div className="flex flex-col md:flex-row items-center justify-around -mt-14 gap-4"></div>
         </div>
         {/* Text */}
 
-        <div className="md:w-1/2 space-y-7 px-0 md:px-4">
-          <div className="  rounded-3xl shadow-xl  p-2 md:p-8 px-10  bg-teal-600/70 mt-10">
+        <div className="md:w-1/2 space-y-7 px-0 md:px-4 md:mt-32">
+          <div className="  rounded-3xl shadow-xl  p-2 md:p-8 px-10  bg-teal-600/70 ">
             <h2 className="md:text-4xl text-gray-800 text-4xl font-bold md:leading-snug leading-snug">
               Step Into Nature. Dine the Eco Way{" "}
               <span className="text-white ">EcoNest Café </span>
@@ -26,7 +26,9 @@ const Banner = () => {
               Welcome to EcoNest Café — where every bite is fresh, every detail
               is green, and every visit feels like a peaceful escape. From
               organic flavors to eco-friendly practices, we serve food that’s
-              good for you and the planet.
+              good for you and kind to the planet. Enjoy a warm atmosphere,
+              healthy meals, and refreshing moments made with care. Every dish
+              is prepared to bring comfort, taste, and sustainability together.
             </p>
 
             <a href="/menu">

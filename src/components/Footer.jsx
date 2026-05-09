@@ -9,7 +9,7 @@ const Footer = () => {
           <p className="md:w-40 text-slate-500 ">
             EcoNest Café Pvt Ltd.
             <br />
-            Providing reliable food since 2019
+            Providing reliable food since 2026
           </p>
         </aside>
         <nav>

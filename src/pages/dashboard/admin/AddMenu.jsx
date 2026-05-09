@@ -3,8 +3,8 @@ import { FaUtensils } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import Swal from 'sweetalert2'
-import back1 from"../../../../public/back1.jpg"
+import Swal from "sweetalert2";
+import back1 from "../../../../public/back1.jpg";
 
 const AddMenu = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -18,6 +18,7 @@ const AddMenu = () => {
   const onSubmit = async (data) => {
     // console.log(data)
     const imageFile = { image: data.image[0] };
+    console.log(imageFile);
     const hostingImg = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
         "content-type": "multipart/form-data",
@@ -28,21 +29,21 @@ const AddMenu = () => {
       const menuItem = {
         name: data.name,
         category: data.category,
-        price: parseFloat(data.price), 
+        price: parseFloat(data.price),
         recipe: data.recipe,
-        image: hostingImg.data.data.display_url
+        image: hostingImg.data.data.display_url,
       };
 
       // console.log(menuItem);
-      const postMenuItem = axiosSecure.post('/menu', menuItem);
-      if(postMenuItem){
-        reset()
+      const postMenuItem = axiosSecure.post("/menu", menuItem);
+      if (postMenuItem) {
+        reset();
         Swal.fire({
           position: "top-end",
           icon: "success",
           title: "Your Item is inserted successfully!",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
       }
     }
@@ -50,17 +51,17 @@ const AddMenu = () => {
 
   return (
     <div className="w-full md:w-[870px]  mt-4 px-4 mx-auto">
-     
-
       {/* form here */}
       <div className="bg-stone-950 rounded-2xl mt-4 px-4 py-4">
         <form onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="text-3xl text-slate-500 text-center font-semibold mt-4 ">
-        Upload A New <span className="  text-yellow-600">Menu Item</span>
-      </h2>
+          <h2 className="text-3xl text-slate-500 text-center font-semibold mt-4 ">
+            Upload A New <span className="  text-yellow-600">Menu Item</span>
+          </h2>
           <div className="form-control w-full">
             <label className="label ">
-              <span className="label-text text-slate-500  text-base  font-bold ">Recipe Name*</span>
+              <span className="label-text text-slate-500  text-base  font-bold ">
+                Recipe Name*
+              </span>
             </label>
             <input
               type="text"
@@ -75,7 +76,9 @@ const AddMenu = () => {
             {/* categories */}
             <div className="form-control w-full my-6">
               <label className="label">
-                <span className="label-text  text-slate-500  text-base  font-bold">Category*</span>
+                <span className="label-text  text-slate-500  text-base  font-bold">
+                  Category*
+                </span>
               </label>
               <select
                 {...register("category", { required: true })}
@@ -85,20 +88,22 @@ const AddMenu = () => {
                 <option disabled value="default">
                   Select a category
                 </option>
-                <option value="rice">Rice</option>
-                <option value="kottu">Kottu</option>
-                <option value="burger">Burger</option>
-                <option value="noodles">Noodles</option>
-                <option value="dessert">dessert</option>
-                <option value="drinks">Drinks</option>
-                <option value="popular">Popular</option>
+                <option value="starters">Starters</option>
+                <option value="main-menu">Main Menu</option>
+                <option value="pizza">Pizza</option>
+                <option value="sparkling-refreshers">
+                  Sparkling Refreshers
+                </option>
+                <option value="brews">Brews</option>
               </select>
             </div>
 
             {/* prices */}
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text  text-slate-500  text-base  font-bold">Price*</span>
+                <span className="label-text  text-slate-500  text-base  font-bold">
+                  Price*
+                </span>
               </label>
               <input
                 type="number"
@@ -112,7 +117,9 @@ const AddMenu = () => {
           {/* 3rd row */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text  text-slate-500  text-base  font-bold">Recipe Details</span>
+              <span className="label-text  text-slate-500  text-base  font-bold">
+                Recipe Details
+              </span>
             </label>
             <textarea
               {...register("recipe", { required: true })}

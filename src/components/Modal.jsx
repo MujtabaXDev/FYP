@@ -18,7 +18,8 @@ const Modal = () => {
   //react hook form
   const {
     register,
-    handleSubmit, reset,
+    handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -42,22 +43,18 @@ const Modal = () => {
             navigate(from, { replace: true });
             /* close modal */
             document.getElementById("my_modal_5").close();
-           
           });
-          alert("Login successful!");
+        alert("Login successful!");
         console.log(user);
         navigate(from, { replace: true });
         /* close modal */
         document.getElementById("my_modal_5").close();
-
-        
       })
       .catch((error) => {
         const errorMessage = error.message;
         seterrorMessage("Please provide valid email & password!");
       });
-      reset()
-
+    reset();
   };
 
   // login with google
@@ -76,8 +73,7 @@ const Modal = () => {
             alert("Signin successful!");
             navigate("/");
           });
-          alert("Login successful!");
-          
+        alert("Login successful!");
       })
       .catch((error) => console.log(error));
   };
@@ -85,7 +81,6 @@ const Modal = () => {
   const openSignupModal = () => {
     document.getElementById("my_modal_5").close();
     document.getElementById("my_modal_7").showModal();
-    
   };
 
   return (
@@ -97,12 +92,16 @@ const Modal = () => {
             method="dialog"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <h3 className="font-bold text-slate-600 text-xl text-center mb-4">Please Login!</h3>
+            <h3 className="font-bold text-slate-600 text-xl text-center mb-4">
+              Please Login!
+            </h3>
 
             {/* email */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-base text-slate-700">Email</span>
+                <span className="label-text text-base text-slate-700">
+                  Email
+                </span>
               </label>
               <input
                 type="email"
@@ -157,35 +156,28 @@ const Modal = () => {
               ✕
             </div>
 
-           {/* Signup link */}
-           <p className="text-center my-2 text-slate-600">
-            Don't have an account?
-            <Link to = "/signup"  className="underline  text-yellow-700 ml-1">
-              Signup Now
-            </Link>
-            
-          </p>
+            {/* Signup link */}
+            <p className="text-center my-2 text-slate-600">
+              Don't have an account?
+              <Link to="/signup" className="underline  text-yellow-700 ml-1">
+                Signup Now
+              </Link>
+            </p>
 
-          <SignupModal/>
+            <SignupModal />
           </form>
-          
+
           <div className="text-center space-x-3 mb-5">
             <button
               onClick={handleRegister}
-              className="btn btn-circle bg-yellow-200  border-none  text-gray-600 hover:bg-yellow-300"
+              className="btn  bg-yellow-200  border-none  text-gray-600 hover:bg-yellow-300"
             >
-              <FaGoogle />
-            </button>
-            <button className="btn btn-circle bg-yellow-200  border-none  text-gray-600 hover:bg-yellow-300">
-              <FaFacebookF />
-            </button>
-            <button className="btn btn-circle bg-yellow-200  border-none  text-gray-600 hover:bg-yellow-300">
-              <FaGithub />
+              <FaGoogle size={34} />
+              Google
             </button>
           </div>
         </div>
       </div>
-      
     </dialog>
   );
 };

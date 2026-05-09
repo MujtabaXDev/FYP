@@ -94,8 +94,8 @@ input[type="number"] {
 }
 
 .scrollbar-yellow::-webkit-scrollbar-thumb {
-  background-color: rgb(248, 252, 42);
-  border-radius: 10px;
+  background-color: rgb(40, 153, 138); 
+  border-radius:  8px;
 }
 
 .scrollbar-yellow::-webkit-scrollbar-thumb:hover {

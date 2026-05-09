@@ -53,11 +53,6 @@ const DashboardLayout = () => {
       </li>
       <li>
         <Link to="/menu">
-          <FaLocationArrow /> Orders Tracking
-        </Link>
-      </li>
-      <li>
-        <Link to="/menu">
           <FaQuestionCircle /> Customer Support
         </Link>
       </li>
@@ -121,7 +116,15 @@ const DashboardLayout = () => {
             >
               <Link to="/dashboard/manage-booking">
                 <FaShoppingBag />
-                Manage Bookings
+                Active Orders
+              </Link>
+            </li>
+            <li
+              className={`hover:bg-white rounded-md my-1 h-10 justify-center ${isItemActive("/dashboard/bookings") ? "bg-gray-100 text-black" : ""}`}
+            >
+              <Link to="/dashboard/manage-shipped ">
+                <FaShoppingBag />
+                Shipped Orders
               </Link>
             </li>
             <li
@@ -140,14 +143,7 @@ const DashboardLayout = () => {
                 Manage Items
               </Link>
             </li>
-            <li
-              className={`hover:bg-white rounded-md my-1 h-10 justify-center ${isItemActive("/dashboard/users") ? "bg-gray-100 text-black" : ""}`}
-            >
-              <Link to="/dashboard/users">
-                <FaUsers />
-                All Users
-              </Link>
-            </li>
+
             <hr className="border-t border-slate-400" />
 
             {/* shared nav links */}

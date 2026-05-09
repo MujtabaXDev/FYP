@@ -1,8 +1,6 @@
-import React from 'react';
-import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { IoFastFood } from "react-icons/io5";
-import { FaUsers } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { GiTakeMyMoney } from "react-icons/gi";
 
@@ -11,27 +9,27 @@ const Dashboard = () => {
 
   // Fetch users data
   const { data: users = [] } = useQuery({
-    queryKey: ['users'],
+    queryKey: ["users"],
     queryFn: async () => {
-      const res = await axiosSecure.get('/users');
+      const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
 
   // Fetch menu items data
   const { data: menu = [] } = useQuery({
-    queryKey: ['menu'],
+    queryKey: ["menu"],
     queryFn: async () => {
-      const res = await axiosSecure.get('/menu');
+      const res = await axiosSecure.get("/menu");
       return res.data;
     },
   });
 
   // Fetch admin stats (total orders and total revenue)
   const { data: adminStats = {} } = useQuery({
-    queryKey: ['admin-stats'],
+    queryKey: ["admin-stats"],
     queryFn: async () => {
-      const res = await axiosSecure.get('/payments/admin-stats');
+      const res = await axiosSecure.get("/payments/admin-stats");
       return res.data;
     },
   });
@@ -41,15 +39,14 @@ const Dashboard = () => {
   const totalMenuItems = menu.length;
 
   return (
-    <div className="w-full h-screen  mt-4 px-4 mx-auto">
+    <div className="w-full   mt-4 px-4 mx-auto flex justify-center content-center  text-2xl">
       <div className="dashboard-container rounded-2xl  max-w-screen-lg mx-auto">
         <h2 className="text-3xl text-slate-500 text-center  font-semibold mt-4 ">
-          <span className="text-yellow-600"> Admin </span> Dashboard
+          <span className="text-teal-900"> Admin </span> Dashboard
         </h2>
         <div className="p-8">
-      
-      {/* first raw */}
-      <div className="bg-white rounded-lg p-4 mb-8">
+          {/* first raw */}
+          {/* <div className="bg-white rounded-lg p-4 mb-8">
       <div className="stats bg-cardYellow text-slate-500 stats-vertical lg:stats-horizontal shadow-xl">
   
       <div className="stat">
@@ -83,55 +80,51 @@ const Dashboard = () => {
     <div class="stat-desc text-secondary text-slate-500">31 reviews remaining</div>
   </div>
 </div>
+      </div> */}
+
+          {/* 2 nd raw */}
+          <div className="bg-white rounded-lg p-4  mb-2  flex items-center justify-center font-2xl">
+            <div className="stats bg-teal-100 stats-vertical lg:stats-horizontal shadow-xl">
+              <div className="stat">
+                <div className="stat-figure   text-slate-500 text-3xl">
+                  <IoFastFood />
+                </div>
+                <div className="stat-title text-slate-500">
+                  Total Menu Items
+                </div>
+                <div className="stat-value text-slate-500">
+                  {totalMenuItems}
+                </div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-figure text-slate-500 text-3xl">
+                  <FaCartShopping />
+                </div>
+                <div class="stat-title text-slate-500">Total Orders</div>
+                <div class="stat-value text-slate-500">
+                  {adminStats.totalOrders || 0}
+                </div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-figure text-secondary">
+                  <div class="avatar online"></div>
+                </div>
+                <div class="stat-figure text-slate-500 text-5xl ">
+                  <GiTakeMyMoney />
+                </div>
+                <div class="stat-title text-slate-500">Total Revenue </div>
+                <div class="stat-value text-slate-500">
+                  {adminStats.totalRevenue || 0}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* import chart1.png and chart2.png */}
+        </div>
       </div>
-
-
-    
-
- {/* 2 nd raw */}
- <div className="bg-white rounded-lg p-4  mb-2">
-      <div className="stats bg-cardYellow stats-vertical lg:stats-horizontal shadow-xl">
-  
-      <div className="stat">
-    <div className="stat-figure   text-slate-500 text-3xl">
-    <IoFastFood />
-    </div>
-    <div className="stat-title text-slate-500">Total Menu Items</div>
-    <div className="stat-value text-slate-500">{totalMenuItems}</div>
-    <div className="stat-desc text-slate-500">21% more than last month</div>
-  </div>
-  
-  <div class="stat">
-    <div class="stat-figure text-slate-500 text-3xl">
-    <FaCartShopping />
-    </div>
-    <div class="stat-title text-slate-500">Total Orders</div>
-    <div class="stat-value text-slate-500">{adminStats.totalOrders || 0}</div>
-    <div class="stat-desc text-slate-500">21% more than last month</div>
-  </div>
-  
-  <div class="stat">
-    <div class="stat-figure text-secondary">
-      <div class="avatar online">
-      
-      </div>
-    </div>
-    <div class="stat-figure text-slate-500 text-5xl ">
-    <GiTakeMyMoney />
-    </div>
-    <div class="stat-title text-slate-500">Total Revenue </div>
-    <div class="stat-value text-slate-500">{adminStats.totalRevenue || 0}</div>
-    <div class="stat-desc text-slate-500">6% more than last month</div>
-  </div>
-</div>
-      </div>
-
-    {/* import chart1.png and chart2.png */}
-   
-     
-      
-    </div>
-    </div>
     </div>
   );
 };

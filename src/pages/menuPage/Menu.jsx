@@ -118,7 +118,7 @@ const Menu = () => {
       <div className=" section-container">
         {/* Filtering and Sorting */}
 
-        <div className="flex flex-row justify-between items-center md:items-start gap-8 mt-6 flex-wrap">
+        <div className="flex flex-row justify-center items-center md:items-start gap-8 mt-6 flex-wrap">
           {/* Buttons */}
           <div className="">
             <button
@@ -130,56 +130,51 @@ const Menu = () => {
               All
             </button>
             <button
-              onClick={() => filterItems("rice")}
+              onClick={() => filterItems("starters")}
               className={`w-24 m-2 bg-yellow-200 text-slate-700  px-4 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
-                selectedCategory === "rice" ? "bg-yellow-300  text-black" : ""
-              }`}
-            >
-              Rice
-            </button>
-            <button
-              onClick={() => filterItems("kottu")}
-              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-700  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
-                selectedCategory === "kottu" ? "bg-yellow-300  text-black" : ""
-              }`}
-            >
-              Kottu
-            </button>
-            <button
-              onClick={() => filterItems("burger")}
-              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-700  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
-                selectedCategory === "burger" ? "bg-yellow-300  text-black" : ""
-              }`}
-            >
-              Burger
-            </button>
-            <button
-              onClick={() => filterItems("noodles")}
-              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-700 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
-                selectedCategory === "noodles"
+                selectedCategory === "starters"
                   ? "bg-yellow-300  text-black"
                   : ""
               }`}
             >
-              Noodles
+              Starters
             </button>
             <button
-              onClick={() => filterItems("dessert")}
-              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-600  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
-                selectedCategory === "dessert"
+              onClick={() => filterItems("main-menu")}
+              className={`w-32 m-2 px-4 bg-yellow-200 text-slate-700  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "main-menu"
                   ? "bg-yellow-300  text-black"
                   : ""
               }`}
             >
-              Desserts
+              Main Menu
             </button>
+
             <button
-              onClick={() => filterItems("drinks")}
-              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-600  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
-                selectedCategory === "drinks" ? "bg-yellow-300  text-black" : ""
+              onClick={() => filterItems("pizza")}
+              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-700  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "pizza" ? "bg-yellow-300  text-black" : ""
               }`}
             >
-              Drinks
+              Pizza
+            </button>
+            <button
+              onClick={() => filterItems("sparkling-refreshers")}
+              className={`w-34 m-2 px-4 bg-yellow-200 text-slate-700 py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "sparkling-refreshers"
+                  ? "bg-yellow-300  text-black"
+                  : ""
+              }`}
+            >
+              Sparkling Refreshers
+            </button>
+            <button
+              onClick={() => filterItems("brews")}
+              className={`w-24 m-2 px-4 bg-yellow-200 text-slate-600  py-2 rounded-full shadow-xl hover:shadow-none hover:bg-green-600 transition-all duration-300 ${
+                selectedCategory === "brews" ? "bg-yellow-300  text-black" : ""
+              }`}
+            >
+              Brews
             </button>
           </div>
 
