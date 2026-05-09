@@ -4,8 +4,10 @@ import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../contexts/AuthProvider";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const [cart, refetch] = useCart();
   const [cartItems, setCartItems] = useState([]);
@@ -142,7 +144,7 @@ const CartPage = () => {
       .catch((error) => console.error(error));
 
     // Pass shipping info to your checkout logic here
-    window.location.href = "/process-checkout";
+    navigate("/process-checkout");
   };
 
   return (
