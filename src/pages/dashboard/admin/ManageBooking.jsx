@@ -27,7 +27,6 @@ const ManageBooking = () => {
         price: `${payment.price}`,
         transactionId: payment.transactionId,
       }));
-      s;
     },
   });
 
@@ -69,12 +68,12 @@ const ManageBooking = () => {
         <table className="min-w-full bg-simpleLightYellow border border-gray-300 shadow-xl">
           <thead>
             <tr className="bg-yellow-200 text-slate-700">
-              <th className="border-b p-2">ID</th>
-              <th className="border-b p-2">Email</th>
-              <th className="border-b p-2">Phone</th>
-              <th className="border-b p-2">Address</th>
+              <th className="border-b p-2 hidden md:table-cell">ID</th>
+              <th className="border-b p-2 hidden md:table-cell">Email</th>
+              <th className="border-b p-2 hidden md:table-cell">Phone</th>
+              <th className="border-b p-2 hidden md:table-cell">Address</th>
               <th className="border-b p-2">Item Name</th>
-              <th className="border-b p-2">Quantity</th>
+              <th className="border-b p-2 hidden md:table-cell">Quantity</th>
               <th className="border-b p-2">Price</th>
               <th className="border-b p-2">Status</th>
               <th className="border-b p-2">Update Status</th>
@@ -83,52 +82,67 @@ const ManageBooking = () => {
           <tbody>
             {bookingData.map((booking) => (
               <tr key={booking.id} className="text-center text-slate-600">
-                <td className="border-b p-2">{booking.id}</td>
-                <td className="border-b p-2">{booking.email}</td>
-                <td className="border-b p-2">{booking.phone}</td>
-                <td className="border-b p-2 max-w-xs truncate">
+                <td className="border-b p-2 hidden md:table-cell">
+                  {booking.id}
+                </td>
+                <td className="border-b p-2 hidden md:table-cell">
+                  {booking.email}
+                </td>
+                <td className="border-b p-2 hidden md:table-cell">
+                  {booking.phone}
+                </td>
+                <td className="border-b p-2 hidden md:table-cell w-[250px] break-words whitespace-normal">
                   {booking.address}
                 </td>
                 <td className="border-b p-2">{booking.itemName}</td>
-                <td className="border-b p-2">{booking.quantity}</td>
+                <td className="border-b p-2 hidden md:table-cell">
+                  {booking.quantity}
+                </td>
                 <td className="border-b p-2">Rs. {booking.price}</td>
                 <td
-                  className={`border-b p-2 ${
+                  className={`border-b p-2 font-medium ${
                     booking.status === "Delivered"
-                      ? "text-green-500"
-                      : "text-orange-500"
+                      ? "text-green-600"
+                      : booking.status === "Out for Delivery"
+                        ? "text-blue-600"
+                        : booking.status === "Preparing"
+                          ? "text-yellow-600"
+                          : "text-orange-600"
                   }`}
                 >
                   {booking.status}
                 </td>
-                <td className="border-b p-2 flex ">
-                  <select
-                    className="bg-teal-700/25 text-slate-700 text-base py-1 px-2 rounded border border-gray-300 mr-2"
-                    value={selectedStatuses[booking.id] || booking.status}
-                    onChange={(e) =>
-                      setSelectedStatuses((prev) => ({
-                        ...prev,
-                        [booking.id]: e.target.value,
-                      }))
-                    }
-                  >
-                    {statusOptions.map((status) => (
-                      <option key={status} value={status}>
-                        {status}
-                      </option>
-                    ))}
-                  </select>
-                  <button
-                    onClick={() =>
-                      setStatus(
-                        booking.transactionId,
-                        selectedStatuses[booking.id] || booking.status,
-                      )
-                    }
-                    className="bg-yellow-300 text-slate-700 text-base py-2 px-4 rounded  hover:bg-yellow-400"
-                  >
-                    Update
-                  </button>
+                <td className="border-b p-2">
+                  <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2">
+                    <select
+                      className="bg-teal-700/25 text-slate-700 text-base py-2 px-3 rounded border border-gray-300 w-full md:w-auto"
+                      value={selectedStatuses[booking.id] || booking.status}
+                      onChange={(e) =>
+                        setSelectedStatuses((prev) => ({
+                          ...prev,
+                          [booking.id]: e.target.value,
+                        }))
+                      }
+                    >
+                      {statusOptions.map((status) => (
+                        <option key={status} value={status}>
+                          {status}
+                        </option>
+                      ))}
+                    </select>
+
+                    <button
+                      onClick={() =>
+                        setStatus(
+                          booking.transactionId,
+                          selectedStatuses[booking.id] || booking.status,
+                        )
+                      }
+                      className="bg-yellow-300 text-slate-700 text-base py-2 px-6 rounded hover:bg-yellow-400 w-full md:w-auto"
+                    >
+                      Update
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

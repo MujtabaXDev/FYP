@@ -5,7 +5,7 @@ const AboutUs = () => {
         <div className=" flex flex-col md:flex-row-reverse justify-center content-between mt-12 gap-6">
           {/* Left side */}
 
-          <div className="md:w-3/5 space-y-7 shadow-xl  text-black bg-white/30 p-6 rounded-2xl mt-36">
+          <div className="md:w-3/5 space-y-7 shadow-xl  text-black bg-white/30 p-6 m-4 rounded-2xl mt-36">
             <h2 className="text-3xl font-semibold text-black">About Us</h2>
             <p className="text-black  text-ellipsis">
               EcoNest Café is more than just a place to eat — it’s a step

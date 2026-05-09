@@ -28,8 +28,8 @@ const ContactUs = () => {
   };
 
   return (
-    <div className=" bg-white menu-background h-screen pt-36">
-      <div className="md:w-3/5 shadow-xl  bg-white p-4 rounded-2xl mt-12 h-500 mx-auto">
+    <div className=" bg-white menu-background h-screen pt-36 m-3">
+      <div className="md:w-3/5 shadow-xl  bg-white p-4 rounded-2xl mt-12 h-500 mx-auto ">
         {/* Right Side */}
         <h2 className="text-3xl font-semibold text-slate-700 mb-4">
           Contact Us

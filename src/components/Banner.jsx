@@ -15,7 +15,7 @@ const Banner = () => {
         </div>
         {/* Text */}
 
-        <div className="md:w-1/2 space-y-7 px-0 md:px-4 md:mt-32">
+        <div className="md:w-1/2 space-y-7 px-0 md:px-4  mt-12 md:mt-32">
           <div className="  rounded-3xl shadow-xl  p-2 md:p-8 px-10  bg-teal-600/70 ">
             <h2 className="md:text-4xl text-gray-800 text-4xl font-bold md:leading-snug leading-snug">
               Step Into Nature. Dine the Eco Way{" "}
@@ -32,7 +32,7 @@ const Banner = () => {
             </p>
 
             <a href="/menu">
-              <button className="bg-white shadow-2xl  text-slate-700 px-8 py-3 hover:bg-teal-500  font-semibold mt-8 rounded-full hover:shadow-none hover:bg-green-600 transition-all duration-300">
+              <button className="bg-white shadow-2xl  text-slate-700 px-8 py-3 hover:bg-teal-500  font-semibold m-4  md:mt-8 rounded-full hover:shadow-none hover:bg-green-600 transition-all duration-300">
                 Discover More
               </button>
             </a>

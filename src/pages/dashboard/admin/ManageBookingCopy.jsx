@@ -55,12 +55,12 @@ const ManageBookingCopy = () => {
           <thead>
             <tr className="bg-yellow-200 text-slate-700">
               <th className="border-b p-2">ID</th>
-              <th className="border-b p-2">Email</th>
+              <th className="border-b p-2 hidden md:table-cell">Email</th>
               <th className="border-b p-2">Phone</th>
-              <th className="border-b p-2">Address</th>
+              <th className="border-b p-2 hidden md:table-cell">Address</th>
               <th className="border-b p-2">Item Name</th>
-              <th className="border-b p-2">Quantity</th>
-              <th className="border-b p-2">Price</th>
+              <th className="border-b p-2 hidden md:table-cell">Quantity</th>
+              <th className="border-b p-2 hidden md:table-cell">Price</th>
               <th className="border-b p-2">Status</th>
             </tr>
           </thead>
@@ -68,14 +68,20 @@ const ManageBookingCopy = () => {
             {bookingData.map((booking) => (
               <tr key={booking.id} className="text-center text-slate-600">
                 <td className="border-b p-2">{booking.id}</td>
-                <td className="border-b p-2">{booking.email}</td>
+                <td className="border-b p-2 hidden md:table-cell">
+                  {booking.email}
+                </td>
                 <td className="border-b p-2">{booking.phone}</td>
-                <td className="border-b p-2 max-w-xs truncate">
+                <td className="border-b p-2 hidden md:table-cell w-[250px] break-words whitespace-normal">
                   {booking.address}
                 </td>
                 <td className="border-b p-2">{booking.itemName}</td>
-                <td className="border-b p-2">{booking.quantity}</td>
-                <td className="border-b p-2">Rs. {booking.price}</td>
+                <td className="border-b p-2 hidden md:table-cell">
+                  {booking.quantity}
+                </td>
+                <td className="border-b p-2 hidden md:table-cell">
+                  Rs. {booking.price}
+                </td>
                 <td
                   className={`border-b p-2 ${
                     booking.status === "Delivered"

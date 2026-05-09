@@ -134,11 +134,6 @@ const CartPage = () => {
       .then((response) => {
         if (response) {
           refetch();
-          Swal.fire(
-            "Updated!",
-            "Your information has been updated.",
-            "success",
-          );
         }
       })
       .catch((error) => console.error(error));
@@ -165,7 +160,7 @@ const CartPage = () => {
                 <tr>
                   <th className="py-2 hidden md:table-cell">Food</th>
                   <th className="py-2">Item Name</th>
-                  <th className="py-2 hidden md:table-cell">Quantity</th>
+                  <th className="py-2 table-cell">Quantity</th>
                   <th className="py-2">Price</th>
                   <th className="py-2">Action</th>
                 </tr>
@@ -188,7 +183,7 @@ const CartPage = () => {
                     <td className="py-2 text-center text-slate-600">
                       {item.name}
                     </td>
-                    <td className="py-2 hidden md:table-cell">
+                    <td className="py-2 table-cell">
                       <div className="flex items-center justify-center space-x-2">
                         <button
                           className="btn btn-ghost btn-sm text-red hover:bg-red-100"

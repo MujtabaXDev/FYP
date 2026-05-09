@@ -104,9 +104,9 @@ const CheckoutForm = ({ price, cart }) => {
       <div className="flex justify-center items-center mb-10">
         <h2 className="text-3xl text-slate-700 font-semibold">Checkout</h2>
       </div>
-      <div className="flex flex-col md:flex-row justify-start items-start gap-8">
+      <div className="flex flex-col md:flex-row justify-center items-start gap-8">
         {/* Order Summary */}
-        <div className="md:w-1/2 space-y-6">
+        <div className="w-full md:w-[30%] space-y-6">
           <div className="bg-white shadow-lg rounded-lg p-6">
             <h4 className="text-xl text-gray-800 font-semibold">
               Order Summary

@@ -31,16 +31,18 @@ const Order = () => {
   const renderTable = () => {
     return (
       <div className="section-container bg-white min-h-screen overflow-x-auto">
-        <div className="max-w-screen-2xl mx-auto xl:px-8 pt-20 pb-16">
+        <div className="max-w-screen-2xl mx-auto xl:px-8 pt-20 pb-16 text-sm">
           <h2 className="text-2xl text-center text-slate-700 font-semibold mb-4">
             Order History
           </h2>
           <table className="min-w-full bg-simpleLightYellow border border-gray-300 shadow-xl ">
             <thead>
               <tr className="bg-yellow-200 text-slate-700">
-                <th className="border-b p-2">Date</th>
-                <th className="border-b p-2">Time</th>
-                <th className="border-b p-2">Transaction ID</th>
+                <th className="border-b p-2">Date & Time</th>
+
+                <th className="border-b p-2 hidden md:table-cell">
+                  Transaction ID
+                </th>
                 <th className="border-b p-2"> Quantity</th>
                 <th className="border-b p-2"> Item Name</th>
                 <th className="border-b p-2">Price</th>
@@ -55,11 +57,13 @@ const Order = () => {
                 >
                   <td className="border-b p-2   text-center">
                     {new Date(item.createdAt).toLocaleDateString()}
-                  </td>
-                  <td className="border-b p-2">
+                    <br />
                     {formatDateTime(item.createdAt)}
                   </td>
-                  <td className="border-b p-2">{item.transactionId}</td>
+
+                  <td className="border-b p-2 hidden md:table-cell">
+                    {item.transactionId}
+                  </td>
                   <td className="border-b p-2">{item.quantity}</td>
                   <td className="border-b p-2">{item.itemName.join(", ")}</td>
                   <td className="border-b p-2">Rs .{item.price}</td>
