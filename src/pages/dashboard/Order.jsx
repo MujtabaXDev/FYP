@@ -11,7 +11,7 @@ const Order = () => {
     enabled: !!user?.email,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:6001/payments?email=${user?.email}`,
+        `https://fyp-server-veg4.onrender.com/payments?email=${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${token}`,

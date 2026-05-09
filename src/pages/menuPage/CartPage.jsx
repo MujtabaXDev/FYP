@@ -34,7 +34,7 @@ const CartPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:6001/carts/${item._id}`)
+          .delete(`https://fyp-server-veg4.onrender.com/carts/${item._id}`)
           .then((response) => {
             if (response) {
               refetch();
@@ -48,7 +48,7 @@ const CartPage = () => {
 
   const handleDecrease = (item) => {
     if (item.quantity > 1) {
-      fetch(`http://localhost:6001/carts/${item._id}`, {
+      fetch(`https://fyp-server-veg4.onrender.com/carts/${item._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ quantity: item.quantity - 1 }),
@@ -69,7 +69,7 @@ const CartPage = () => {
   };
 
   const handleIncrease = (item) => {
-    fetch(`http://localhost:6001/carts/${item._id}`, {
+    fetch(`https://fyp-server-veg4.onrender.com/carts/${item._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ quantity: item.quantity + 1 }),
@@ -127,7 +127,7 @@ const CartPage = () => {
     };
     console.log(info);
     axios
-      .put(`http://localhost:6001/users/${user.email}`, info)
+      .put(`https://fyp-server-veg4.onrender.com/users/${user.email}`, info)
       .then((response) => {
         if (response) {
           refetch();

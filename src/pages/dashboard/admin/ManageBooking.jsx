@@ -12,7 +12,9 @@ const ManageBooking = () => {
   } = useQuery({
     queryKey: ["activePayments"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:6001/payments/active");
+      const res = await axios.get(
+        "https://fyp-server-veg4.onrender.com/payments/active",
+      );
       return res.data.map((payment, index) => ({
         id: index + 1,
         email: payment.email,
@@ -25,6 +27,7 @@ const ManageBooking = () => {
         price: `${payment.price}`,
         transactionId: payment.transactionId,
       }));
+      s;
     },
   });
 
@@ -34,10 +37,11 @@ const ManageBooking = () => {
   const setStatus = async (transactionId, status) => {
     try {
       await axios.patch(
-        `http://localhost:6001/payments/status/${transactionId}`,
+        `https://fyp-server-veg4.onrender.com/payments/status/${transactionId}`,
         {
-        status,
-      });
+          status,
+        },
+      );
       alert("Status updated!");
       refetch();
     } catch (error) {

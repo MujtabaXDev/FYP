@@ -72,7 +72,7 @@ const CheckoutForm = ({ price, cart }) => {
       alert("payment successful");
       navigate("/order");
       const res = await axios.get(
-        `http://localhost:6001/users/info/${user?.email}`,
+        `https://fyp-server-veg4.onrender.com/users/info/${user?.email}`,
       );
       console.log("cart info:", cart);
       //payment info data

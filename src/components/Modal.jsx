@@ -35,7 +35,7 @@ const Modal = () => {
           email: data.email,
         };
         axios
-          .post("http://localhost:6001/users", userInfor)
+          .post("https://fyp-server-veg4.onrender.com/users", userInfor)
           .then((response) => {
             // console.log(response);
             alert("Signin successful!");
@@ -67,7 +67,7 @@ const Modal = () => {
           email: result?.user?.email,
         };
         axios
-          .post("http://localhost:6001/users", userInfor)
+          .post("https://fyp-server-veg4.onrender.com/users", userInfor)
           .then((response) => {
             // console.log(response);
             alert("Signin successful!");

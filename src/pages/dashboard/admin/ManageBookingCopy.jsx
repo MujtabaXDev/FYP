@@ -8,7 +8,9 @@ const ManageBookingCopy = () => {
   const { data: bookingData = [], isLoading } = useQuery({
     queryKey: ["deliveredPayments"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:6001/payments/delivered");
+      const res = await axios.get(
+        "https://fyp-server-veg4.onrender.com/payments/delivered",
+      );
       return res.data.map((payment, index) => ({
         id: index + 1,
         email: payment.email,

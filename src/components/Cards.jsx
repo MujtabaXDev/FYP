@@ -31,7 +31,7 @@ const Cards = ({ item }) => {
         email: user.email,
       };
       axios
-        .post("http://localhost:6001/carts", cartItem)
+        .post("https://fyp-server-veg4.onrender.com/carts", cartItem)
         .then((response) => {
           console.log(response);
           if (response) {
