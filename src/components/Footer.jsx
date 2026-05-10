@@ -40,7 +40,7 @@ const Footer = () => {
         <footer className="footer items-center  xl:px-24  px-4 mb-0 ">
           <aside className="items-center grid-flow-col text-slate-800 mb-8">
             <p className="mt-5 text-slate-300">
-              Copyright © 2023 - All right reserved By Muhamamd Mujtaba
+              Copyright © 2026 - All right reserved By Muhamamd Mujtaba
             </p>
           </aside>
           <nav className="grid-flow-col mt-1 gap-4  md:place-self-center md:justify-right ml-10">
