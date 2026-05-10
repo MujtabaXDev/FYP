@@ -139,7 +139,7 @@ const Menu = () => {
                   : ""
               }`}
             >
-              Copyright © 2026 - All right reserved By Muhamamd Mujtaba Starters
+              Starters
             </button>
             <button
               onClick={() => filterItems("main-menu")}
